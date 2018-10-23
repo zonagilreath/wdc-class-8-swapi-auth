@@ -15,12 +15,13 @@ from rest_framework.permissions import *
 from api.models import People, Planet
 from api.serializers import PeopleModelSerializer, PlanetModelSerializer
 from api.permissions import IsUsernameStartingWithA, IsEvenPeopleID
-
+from api.pagination import TinyResultsPagination
 
 class PeopleModelViewSet(viewsets.ModelViewSet):
 
     # authentication_classes = (TokenAuthentication, )
     # permission_classes = (IsAuthenticated, IsUsernameStartingWithA, IsEvenPeopleID)
+    # pagination_class = TinyResultsPagination
     serializer_class = PeopleModelSerializer
     queryset = People.objects.all()
 
