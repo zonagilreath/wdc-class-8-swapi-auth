@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from api.models import People, Planet
+from api.models import APIClient, People, Planet
+
+
+
+@admin.register(APIClient)
+class APIClientAdmin(admin.ModelAdmin):
+    list_display = ('name', 'accesskey', 'is_active')
 
 
 @admin.register(People)
