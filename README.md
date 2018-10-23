@@ -1,10 +1,10 @@
 # SWAPI auth
 
-We keep improving our SWAPI (https://swapi.co/) clone with more features. Now we will add some security layers on top of the REST API with built in our [previous project](https://github.com/rmotr-curriculum/wdc-class-6-swapi-drf). To do so, we will learn about two important topics to keep in mind while working with APIs: Authentication and Permissions.
+We keep improving our SWAPI (https://swapi.co/) clone with more features. Now we will add some security layers on top of the REST API we built in our [previous project](https://github.com/rmotr-curriculum/wdc-class-6-swapi-drf). To do so, we will learn about two important topics to keep in mind while working with APIs: Authentication and Permissions.
 
 ## Authentication
 
-Authentication will try to identify "who" is the person performing a request to our service. We will see that `rest-framework` supports most of the common authentication mechanisms our of the box. We can also write our own custom rules if we need.
+Authentication will try to identify "who" is the person performing a request to our service. We will see that `rest-framework` supports most of the common authentication mechanisms out of the box. We can also write our own custom rules if we need.
 
 
 * Basic Authentication (user & password)
