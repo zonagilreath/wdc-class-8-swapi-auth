@@ -3,12 +3,13 @@ import json
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
+from rest_framework import mixins
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework.viewsets import GenericViewSet
-from rest_framework import mixins
 from rest_framework.authentication import *
 from rest_framework.permissions import *
 
@@ -29,6 +30,18 @@ class PeopleModelViewSet(viewsets.ModelViewSet):
     #     if self.action == 'list':
     #         return [IsAuthenticated(), IsUsernameStartingWithA()]
     #     return [IsAuthenticated(), IsEvenPeopleID()]
+
+    @action(detail=False, methods=['get'], url_path='custom-list-action')
+    def custom_list_action(self, request, pk=None):
+        return Response({
+            'message': 'This is a custom List action'
+        })
+
+    @action(detail=True, methods=['get'], url_path='custom-detail-action')
+    def custom_detail_action(self, request, pk=None):
+        return Response({
+            'message': "This is a custom Detail action for object '{}'".format(pk)
+        })
 
 
 class PlanetModelViewSet(viewsets.ModelViewSet):
