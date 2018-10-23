@@ -11,3 +11,12 @@ token auth
 custom auth (api client)
 JWT
 ```
+
+
+## Permissions
+```
+AllowAny
+IsAuthenticated
+IsAdminUser
+IsAuthenticatedOrReadOnly
+```
