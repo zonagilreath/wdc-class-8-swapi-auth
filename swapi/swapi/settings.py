@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_jwt',
     'api',
 ]
 
@@ -124,16 +125,9 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
-        # 'api.authentication.APIClientAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',
     ),
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
-    # 'PAGE_SIZE': 10
 }
