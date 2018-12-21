@@ -18,30 +18,13 @@ from api.serializers import PeopleModelSerializer, PlanetModelSerializer
 from api.permissions import IsUsernameStartingWithA, IsEvenPeopleID
 from api.pagination import TinyResultsPagination
 
+
 class PeopleModelViewSet(viewsets.ModelViewSet):
 
-    # authentication_classes = (TokenAuthentication, )
-    # permission_classes = (IsAuthenticated, IsUsernameStartingWithA, IsEvenPeopleID)
-    # pagination_class = TinyResultsPagination
+    # authentication_classes = []
+    # permission_classes = [AllowAny, ]
     serializer_class = PeopleModelSerializer
     queryset = People.objects.all()
-
-    # def get_permissions(self):
-    #     if self.action == 'list':
-    #         return [IsAuthenticated(), IsUsernameStartingWithA()]
-    #     return [IsAuthenticated(), IsEvenPeopleID()]
-
-    @action(detail=False, methods=['get'], url_path='custom-list-action')
-    def custom_list_action(self, request, pk=None):
-        return Response({
-            'message': 'This is a custom List action'
-        })
-
-    @action(detail=True, methods=['get'], url_path='custom-detail-action')
-    def custom_detail_action(self, request, pk=None):
-        return Response({
-            'message': "This is a custom Detail action for object '{}'".format(pk)
-        })
 
 
 class PlanetModelViewSet(viewsets.ModelViewSet):
