@@ -1,0 +1,167 @@
+{
+	"variables": [],
+	"info": {
+		"name": "wdc-class-8-swapi-auth",
+		"_postman_id": "aef00fa6-8e88-3a55-e044-dd63019d3b13",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "step1: No authentication",
+			"request": {
+				"url": "http://localhost:8080/people",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step2: Basic Auth",
+			"request": {
+				"url": "http://localhost:8080/people",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dGVzdGluZzpSTU9UUjEyMw==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step3: Session Auth",
+			"request": {
+				"url": "http://localhost:8080/people",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "sessionid=s3e9ftrazpaujg55vwugcflm8fy0vx1l",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step4: Token Auth",
+			"request": {
+				"url": "http://localhost:8080/people",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c799423d0b717ea1893d7ca4eb57e4ec73368a4b",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step5: Custom Auth",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/people?accesskey=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"people"
+					],
+					"query": [
+						{
+							"key": "accesskey",
+							"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step6: JWT Auth",
+			"request": {
+				"url": "http://localhost:8080/people",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3RpbmciLCJleHAiOjE1NDU0MjA4MDAsImVtYWlsIjoiIn0.Zdf_s15k6SxJhmePCC9Dzllid335sIvaBL78WOOBrR0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step7: Permissions",
+			"request": {
+				"url": "http://localhost:8080/people/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46Uk1PVFIxMjM=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "step8: Pagination",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/people?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"people"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
