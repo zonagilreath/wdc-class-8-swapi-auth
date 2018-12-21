@@ -23,18 +23,6 @@ class PeopleModelViewSet(viewsets.ModelViewSet):
     serializer_class = PeopleModelSerializer
     queryset = People.objects.all()
 
-    @action(detail=False, methods=['get'], url_path='custom-list-action')
-    def custom_list_action(self, request, pk=None):
-        return Response({
-            'message': 'This is a custom List action'
-        })
-
-    @action(detail=True, methods=['get'], url_path='custom-detail-action')
-    def custom_detail_action(self, request, pk=None):
-        return Response({
-            'message': "This is a custom Detail action for object '{}'".format(pk)
-        })
-
 
 class PlanetModelViewSet(viewsets.ModelViewSet):
 
