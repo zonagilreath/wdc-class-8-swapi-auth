@@ -33,3 +33,7 @@ createsuperuser:
 test:
 	@echo $(TAG)Running tests$(END)
 	$(call django-command, test, api)
+	
+importdata:
+	@echo $(TAG)Importing data$(END)
+	$(call django-command, importdata)
