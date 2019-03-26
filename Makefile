@@ -17,6 +17,10 @@ runserver:
 shell:
 	@echo $(TAG)Running Shell $(END)
 	$(call django-command, shell)
+	
+dbshell:
+	@echo $(TAG)Running SQLite Shell $(END)
+	$(call django-command, dbshell)
 
 migrate:
 	@echo $(TAG)Migrating Database$(END)
